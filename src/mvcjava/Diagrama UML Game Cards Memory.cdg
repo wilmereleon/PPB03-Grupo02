@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="MVCJava">
+  <ClassDiagramComponents>
+    <Class name="Board" package="mvcjava" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="board" type="ArrayList&lt;ArrayList&lt;BoardSquare&gt;&gt;" visibility="private"/>
+        <Field name="INITIAL_ROWS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="INITIAL_COLS" type="int" visibility="public" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Deck" name="deck"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="replaceCard" returnType="void" visibility="public">
+          <Argument type="Card" name="card"/>
+          <Argument type="int" name="row"/>
+          <Argument type="int" name="column"/>
+        </Method>
+        <Method name="getBoardSquare" returnType="BoardSquare" visibility="public">
+          <Argument type="int" name="row"/>
+          <Argument type="int" name="column"/>
+        </Method>
+        <Method name="getBoardSquares" returnType="ArrayList&lt;ArrayList&lt;BoardSquare&gt;&gt;" visibility="public"/>
+        <Method name="add3" returnType="void" visibility="public">
+          <Argument type="Deck" name="deck"/>
+        </Method>
+        <Method name="getCard" returnType="Card" visibility="public">
+          <Argument type="int" name="row"/>
+          <Argument type="int" name="column"/>
+        </Method>
+        <Method name="numRows" returnType="int" visibility="public"/>
+        <Method name="numCols" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="BoardSquare" package="mvcjava" visibility="public" xPosition="434.0" yPosition="545.0">
+      <Fields>
+        <Field name="column" type="int" visibility="private"/>
+        <Field name="row" type="int" visibility="private"/>
+        <Field name="card" type="Card" visibility="private"/>
+        <Field name="selected" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Card" name="card"/>
+          <Argument type="int" name="column"/>
+          <Argument type="int" name="row"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getColumn" returnType="int" visibility="public"/>
+        <Method name="setColumn" returnType="void" visibility="public">
+          <Argument type="int" name="c"/>
+        </Method>
+        <Method name="getRow" returnType="int" visibility="public"/>
+        <Method name="setRow" returnType="void" visibility="public">
+          <Argument type="int" name="r"/>
+        </Method>
+        <Method name="getCard" returnType="Card" visibility="public"/>
+        <Method name="setCard" returnType="void" visibility="public">
+          <Argument type="Card" name="c"/>
+        </Method>
+        <Method name="isSelected" returnType="boolean" visibility="public"/>
+        <Method name="setSelected" returnType="void" visibility="public">
+          <Argument type="boolean" name="s"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Card" package="mvcjava" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="package">
+          <Argument type="int" name="number"/>
+          <Argument type="int" name="shape"/>
+          <Argument type="int" name="shading"/>
+          <Argument type="int" name="color"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="isSet" returnType="boolean" visibility="package" isStatic="true">
+          <Argument type="Card" name="card"/>
+          <Argument type="Card" name="card0"/>
+          <Argument type="Card" name="card1"/>
+        </Method>
+        <Method name="getNumber" returnType="int" visibility="package"/>
+        <Method name="getColor" returnType="int" visibility="package"/>
+        <Method name="getShading" returnType="int" visibility="package"/>
+        <Method name="getShape" returnType="int" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="Deck" package="mvcjava" visibility="public" xPosition="1053.0" yPosition="512.0">
+      <Fields>
+        <Field name="CARDS_IN_DECK" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="deck" type="ArrayList&lt;Card&gt;" visibility="public"/>
+        <Field name="ct" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="freshDeck" returnType="void" visibility="public"/>
+        <Method name="shuffle" returnType="void" visibility="public"/>
+        <Method name="isEmpty" returnType="boolean" visibility="public"/>
+        <Method name="getTopCard" returnType="Card" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getCards" returnType="ArrayList" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Game" package="mvcjava" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="selectedCards" type="int" visibility="private"/>
+        <Field name="deck" type="Deck" visibility="package"/>
+        <Field name="board" type="Board" visibility="package"/>
+        <Field name="selected" type="ArrayList&lt;BoardSquare&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="outOfCards" returnType="boolean" visibility="public"/>
+        <Method name="addToSelected" returnType="void" visibility="public">
+          <Argument type="int" name="row"/>
+          <Argument type="int" name="col"/>
+        </Method>
+        <Method name="numSelected" returnType="int" visibility="public"/>
+        <Method name="testSelected" returnType="boolean" visibility="public"/>
+        <Method name="removeSelected" returnType="void" visibility="public">
+          <Argument type="int" name="row"/>
+          <Argument type="int" name="col"/>
+        </Method>
+        <Method name="getSelected" returnType="ArrayList&lt;BoardSquare&gt;" visibility="public"/>
+        <Method name="add3" returnType="void" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+        <Method name="getBoard" returnType="Board" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="GameFX" package="mvcjava" visibility="public" xPosition="1434.0" yPosition="400.0">
+      <Fields>
+        <Field name="g" type="Game" visibility="public"/>
+        <Field name="pane" type="Pane" visibility="private"/>
+        <Field name="b" type="Board" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="start" returnType="void" visibility="public">
+          <Argument type="Stage" name="stage"/>
+        </Method>
+        <Method name="createCard" returnType="Pane" visibility="public">
+          <Argument type="int" name="shape"/>
+          <Argument type="int" name="fill"/>
+          <Argument type="int" name="color"/>
+          <Argument type="int" name="number"/>
+          <Argument type="int" name="rows"/>
+          <Argument type="int" name="cols"/>
+        </Method>
+        <Method name="updateBoard" returnType="void" visibility="public">
+          <Argument type="Board" name="b"/>
+          <Argument type="GridPane" name="pane"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="card" source="mvcjava.BoardSquare" target="mvcjava.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mvcjava.Board" target="mvcjava.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="board" source="mvcjava.Game" target="mvcjava.Board" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="g" source="mvcjava.GameFX" target="mvcjava.Game" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mvcjava.Board" target="mvcjava.Deck" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mvcjava.Board" target="mvcjava.BoardSquare" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mvcjava.Deck" target="mvcjava.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mvcjava.Game" target="mvcjava.Board" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mvcjava.Game" target="mvcjava.BoardSquare" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="selected" source="mvcjava.Game" target="mvcjava.BoardSquare" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;BoardSquare&gt;"/>
+    <HasRelation name="b" source="mvcjava.GameFX" target="mvcjava.Board" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="deck" source="mvcjava.Game" target="mvcjava.Deck" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="mvcjava.BoardSquare" target="mvcjava.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="deck" source="mvcjava.Deck" target="mvcjava.Card" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Card&gt;"/>
+    <UseRelation source="mvcjava.Card" target="mvcjava.Card" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="board" source="mvcjava.Board" target="mvcjava.BoardSquare" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;ArrayList&lt;BoardSquare&gt;&gt;"/>
+    <UseRelation source="mvcjava.GameFX" target="mvcjava.Board" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
